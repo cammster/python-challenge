@@ -1,29 +1,40 @@
-#Script to Automate the Analysis of a Passage
-#Import a Text File
-#   Import Operating System Module
+###################################################################################################
+# Description: Script to Automate the Analysis of a Passage
+# Assumptions: Passage is a string
+# -------------Script accounts for commas, periods, 
+###################################################################################################
+# Import Modules and File
+###################################################################################################
 import os
-#   Set Path
 filename='Passage1.txt'
 filepath=os.path.join(filename)
-#   Open File
 with open(filepath,'r') as text:
-    #store text as string and print
     lines=text.read()
     print("Paragraph Analysis")
     print("-------------------") 
     strlength=len(lines)   #Total Number of characters in passage (letters,space,punctuation)
-  #Approximate Word Count (split by space)
+###################################################################################################
+#Approximate Word Count (split by space)
+###################################################################################################
     words=lines.split(" ")  #store words in array
-    numwords=len(words)     #obtain number of words
+    numdashes=lines.count(" -")
+    numwords=len(words)-numdashes    #obtain number of words
     print("Approximate Word Count: "+str(numwords))
-#Approximate Sentence Count (split by period)
+###################################################################################################
+# Approximate Sentence Count (split by period)
+###################################################################################################
     numperiods=lines.count(".")
     print("Average Sentence Count: "+str(numperiods))
-#Average Letter Count  - Take number of characters without spaces, commas, period and divide by numwords
+###################################################################################################
+#Average Letter Count 
+###################################################################################################
     numcommas=lines.count(",")
     numspaces=numwords
     avglettercount=(strlength-numspaces-numcommas-numperiods)/numwords
-    print("Average Letter Count per Word: "+str(int(avglettercount)))    
+    print("Average Letter Count per Word: "+str(float(avglettercount)))  
+##################################################################################################  
 #Average Sentence Length (in words) - Take Word Count and Divide by Sentence Count
-    sentencelength=int(numwords/numperiods)
+###################################################################################################
+    sentencelength=float(numwords/numperiods)
     print("Average Sentence Length (in words): "+str(sentencelength))
+################################################################################################
