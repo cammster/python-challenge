@@ -1,7 +1,7 @@
 ###################################################################################################
-# Description: Script to Automate the Analysis of a Passage
-# Assumptions: Passage is a string
-# -------------Script accounts for commas, periods, 
+# Description: Script to Automate the basic analysis of a passage by taking in a txt file
+# Assumptions: Txt file is in the same working directory as this script
+#              Script accounts for commas, periods and dashes
 ###################################################################################################
 # Import Modules and File
 ###################################################################################################
