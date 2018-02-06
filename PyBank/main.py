@@ -44,17 +44,17 @@ for i in range(1,revnumlength):
     revchange.append(revnum[i]-revnum[i-1])
 avgrevchange=sum(revchange)/len(revchange)
 #################################################################################################
-#Greatest Increase in Revenue (date/amount) over entire period
+#Greatest Increase in Revenue (date/amount) over entire period-MAX Change in Revenue
 #################################################################################################
-revmax=max(revnum)
-revmaxindex=revnum.index(revmax)
+revmax=max(revchange)
+revmaxindex=revchange.index(revmax)+1
 dateslice=datelist[1:] 
 datemax=dateslice[revmaxindex]
 ##################################################################################################
-#Greatest Decrease in Revenue (date/amount) over entire period
+#Greatest Decrease in Revenue (date/amount) over entire period-MIN Change in Revenue
 ##################################################################################################
-revmin=min(revnum)
-revminindex=revnum.index(revmin)
+revmin=min(revchange)
+revminindex=revchange.index(revmin)+1
 datemin=dateslice[revminindex]
 ##################################################################################################
 #Print Analysis to Terminal and Text File
